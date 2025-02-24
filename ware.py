@@ -26,17 +26,17 @@ sales_df['TimeID'] = sales_df['Date'].map(time_map)
 # Drop columns that are no longer needed
 sales_df = sales_df.drop(columns=['ProductName', 'CustomerName', 'Date'])
 
-# โหลดข้อมูลเข้า MySQL
-# โหลด products
+# load to MySQL
+# load to products
 products_df.to_sql('products', engine, if_exists='append', index=False)
 
-# โหลด customers
+# load to customers
 customers_df.to_sql('customers', engine, if_exists='append', index=False)
 
-# โหลด time
+# load to time
 time_df.to_sql('time', engine, if_exists='append', index=False)
 
-# โหลด sales
+# load to sales
 sales_df.to_sql('sales', engine, if_exists='append', index=False)
 
 print("ETL process completed successfully!")
